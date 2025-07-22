@@ -54,30 +54,30 @@ export async function seedDatabase() {
     const teamData = [
       {
         name: 'Prince Mehta',
-        role: 'Founder & Lead Developer',
-        bio: 'Computer Science student at NIT JSR with a passion for creating innovative web solutions. Specializes in full-stack development and system architecture.',
+        role: 'CEO & Director',
+        bio: 'Visionary leader managing operations and client success.',
         image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=400',
-        skills: ['React', 'Node.js', 'Python', 'System Design'],
+        skills: ['Leadership', 'Strategic Planning', 'Client Relations', 'Business Development'],
         linkedinUrl: '#',
         githubUrl: '#',
         twitterUrl: '#'
       },
       {
-        name: 'Shoumyadeep Ray',
-        role: 'Creative Director',
-        bio: 'Visionary designer and video editor who brings brands to life through compelling visual storytelling and innovative design solutions.',
+        name: 'Somadeep Roy',
+        role: 'Marketing Head',
+        bio: 'Handles digital marketing strategies, outreach, and audience engagement.',
         image: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=400',
-        skills: ['UI/UX Design', 'Video Editing', 'Motion Graphics', 'Branding'],
+        skills: ['Digital Marketing', 'SEO/SEM', 'Social Media Strategy', 'Content Marketing', 'Analytics'],
         linkedinUrl: '#',
         githubUrl: '#',
         twitterUrl: '#'
       },
       {
-        name: 'Rahul Kumar',
-        role: 'Digital Strategy Specialist',
-        bio: 'Strategic thinker who helps businesses navigate the digital landscape and develop comprehensive growth strategies that deliver results.',
+        name: 'Rahul Prasad',
+        role: 'Creative Video Editor',
+        bio: 'Expert in editing high-impact content for social media and brands.',
         image: 'https://images.pexels.com/photos/1310522/pexels-photo-1310522.jpeg?auto=compress&cs=tinysrgb&w=400',
-        skills: ['Digital Marketing', 'SEO', 'Content Strategy', 'Analytics'],
+        skills: ['Video Editing', 'Motion Graphics', 'Adobe Premiere', 'After Effects', 'Color Grading'],
         linkedinUrl: '#',
         githubUrl: '#',
         twitterUrl: '#'
