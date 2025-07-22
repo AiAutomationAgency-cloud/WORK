@@ -75,8 +75,11 @@ npm install
 cp .env.example .env
 ```
 
-Edit `.env` file with your database details:
+Edit `.env` file (in project root, same level as package.json) with your database details:
 ```env
+# Server Environment Variables (these are for Node.js server only)
+# The client (browser) cannot access these variables
+
 # For local PostgreSQL
 DATABASE_URL=postgresql://digitalteam_user:your_password@localhost:5432/digitalteam_db
 
@@ -86,7 +89,16 @@ DATABASE_URL=postgresql://username:password@ep-xyz.us-east-2.aws.neon.tech/digit
 # Application settings
 NODE_ENV=development
 PORT=5000
+
+# Note: Client-side variables would need VITE_ prefix, but none are needed for this project
+# Example: VITE_API_URL=http://localhost:5000 (not needed - client uses relative URLs)
 ```
+
+**Important**: 
+- `.env` file goes in the **project root** (same folder as package.json)
+- **Server** uses `process.env.DATABASE_URL` 
+- **Client** would use `import.meta.env.VITE_VARIABLE_NAME` (none needed here)
+- The client makes API calls to the same server, so no separate client env needed
 
 ### 5. Initialize Database
 ```bash
