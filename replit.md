@@ -7,6 +7,7 @@ This is a modern portfolio website for DigitalTeam, a digital agency specializin
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+Theme preference: Modern light theme with clean gradients and contemporary design.
 
 ## System Architecture
 

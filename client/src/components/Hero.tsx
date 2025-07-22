@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen relative overflow-hidden bg-gradient-to-br from-gray-50 via-slate-100 to-gray-100 dark:from-gray-900 dark:via-slate-900 dark:to-black flex items-center">
+    <section id="home" className="min-h-screen relative overflow-hidden bg-gradient-to-br from-white via-blue-50 to-slate-100 dark:from-gray-900 dark:via-slate-900 dark:to-black flex items-center">
       {/* Background Animation */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Animated Particles */}

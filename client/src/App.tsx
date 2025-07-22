@@ -9,9 +9,9 @@ import { HomePage } from '@/pages/HomePage';
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider defaultTheme="system" storageKey="digitalteam-ui-theme">
+      <ThemeProvider defaultTheme="light" storageKey="digitalteam-ui-theme">
         <Router>
-          <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+          <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:bg-gray-900 transition-colors duration-300">
             <Header />
             <main>
               <Route path="/" component={HomePage} />
