@@ -8,6 +8,13 @@ export const queryClient = new QueryClient({
         if (error?.status === 404) return false;
         return failureCount < 3;
       },
+      queryFn: async ({ queryKey }) => {
+        const response = await fetch(queryKey[0] as string);
+        if (!response.ok) {
+          throw new Error(`API request failed: ${response.status} ${response.statusText}`);
+        }
+        return response.json();
+      },
     },
   },
 });
