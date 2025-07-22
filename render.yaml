@@ -9,13 +9,7 @@ services:
       - key: NODE_ENV
         value: production
       - key: DATABASE_URL
-        fromDatabase:
-          name: digitalteam-db
-          property: connectionString
+        sync: false
     healthCheckPath: /api/services
 
-databases:
-  - name: digitalteam-db
-    databaseName: digitalteam
-    user: digitalteam_user
-    plan: starter
+# Using external Supabase database - no Render database needed

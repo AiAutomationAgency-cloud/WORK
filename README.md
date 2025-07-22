@@ -84,34 +84,9 @@ npm start
 
 ## Deployment
 
-### Vercel Deployment
+This application is configured for deployment on **Render** with **Supabase** database.
 
-1. **Fork/Clone this repository**
-
-2. **Connect to Vercel**
-   - Go to [Vercel Dashboard](https://vercel.com/dashboard)
-   - Click "New Project"
-   - Import your GitHub repository
-
-3. **Environment Variables**
-   Add these environment variables in your Vercel project settings:
-   ```
-   DATABASE_URL=your_production_database_url
-   NODE_ENV=production
-   ```
-
-4. **Database Setup**
-   - Create a PostgreSQL database (recommended: [Neon](https://neon.tech/), [PlanetScale](https://planetscale.com/), or [Supabase](https://supabase.com/))
-   - Run database migrations:
-     ```bash
-     npm run db:push
-     ```
-
-5. **Deploy**
-   - Vercel will automatically deploy your application
-   - Your site will be available at `https://your-project-name.vercel.app`
-
-### Alternative Deployment Options
+Follow the `RENDER_DEPLOYMENT.md` guide for complete step-by-step deployment instructions.
 
 #### Railway
 1. Connect your GitHub repository to Railway
