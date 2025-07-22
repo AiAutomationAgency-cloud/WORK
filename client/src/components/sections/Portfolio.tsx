@@ -114,7 +114,7 @@ export function Portfolio() {
           transition={{ duration: 0.5 }}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {projects?.map((project, index) => (
+          {Array.isArray(projects) ? projects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
@@ -230,7 +230,11 @@ export function Portfolio() {
                 </motion.button>
               </div>
             </motion.div>
-          ))}
+          )) : (
+            <div className="col-span-full text-center py-12">
+              <p className="text-xl text-gray-600 dark:text-gray-300">No projects found.</p>
+            </div>
+          )}
         </motion.div>
 
         {/* Bottom CTA */}
