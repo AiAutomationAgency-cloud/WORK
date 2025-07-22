@@ -54,33 +54,37 @@ If setting up manually, use these settings:
 - **Health Check Path**: `/api/services`
 - **Auto-Deploy**: `Yes` (deploys on git push)
 
-### 5. Database Setup
+### 5. Database Setup (Supabase)
 
-**Option A: Using render.yaml (Automatic)**
-The database will be created automatically when using the blueprint.
+This project uses **Supabase** as the external database:
 
-**Option B: Manual Database Creation**
-1. Click **"New +"** → **"PostgreSQL"**
-2. **Name**: `digitalteam-db`
-3. **Database**: `digitalteam`
-4. **User**: `digitalteam_user`
-5. **Plan**: `Free` (100MB storage)
-6. Click **"Create Database"**
+**Step 1: Create Supabase Project**
+1. Go to [supabase.com](https://supabase.com)
+2. Create a new project
+3. Choose your organization and project name
+4. Select a region close to your users
+5. Set a strong database password
+
+**Step 2: Get Database Connection String**
+1. In Supabase dashboard → Settings → Database
+2. Copy the Connection String from "Transaction pooler"
+3. Replace `[YOUR-PASSWORD]` with your actual database password
 
 ### 6. Environment Variables
 
-Add these environment variables in your web service:
+Add these environment variables in your Render web service:
 
 **Required Variables:**
 ```
 NODE_ENV=production
-DATABASE_URL=[Auto-filled from database connection]
+DATABASE_URL=postgresql://postgres:your_password@your_project.supabase.co:5432/postgres
 ```
 
-**If using external database:**
-```
-DATABASE_URL=postgresql://username:password@host:5432/database_name
-```
+**How to add environment variables in Render:**
+1. Go to your web service dashboard
+2. Click "Environment" tab  
+3. Click "Add Environment Variable"
+4. Add each variable name and value
 
 ### 7. Deploy
 

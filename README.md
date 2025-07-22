@@ -33,7 +33,7 @@ A modern, full-stack portfolio website for DigitalTeam - a digital agency specia
 
 ### Prerequisites
 - Node.js 18+ 
-- PostgreSQL database
+- Supabase account and database
 - Git
 
 ### Local Development Setup
@@ -54,9 +54,10 @@ A modern, full-stack portfolio website for DigitalTeam - a digital agency specia
    cp .env.example .env
    ```
    
-   Update `.env` with your database credentials:
+   Update `.env` with your Supabase database URL:
    ```env
-   DATABASE_URL=postgresql://username:password@localhost:5432/digitalteam_db
+   DATABASE_URL=postgresql://postgres:your_password@your_project.supabase.co:5432/postgres
+   NODE_ENV=development
    ```
 
 4. **Database Setup**
@@ -87,17 +88,6 @@ npm start
 This application is configured for deployment on **Render** with **Supabase** database.
 
 Follow the `RENDER_DEPLOYMENT.md` guide for complete step-by-step deployment instructions.
-
-#### Railway
-1. Connect your GitHub repository to Railway
-2. Add environment variables
-3. Deploy automatically
-
-#### Render
-1. Connect your GitHub repository to Render
-2. Set build command: `npm run build`
-3. Set start command: `npm start`
-4. Add environment variables
 
 ## Project Structure
 
