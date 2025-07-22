@@ -1,32 +1,27 @@
-import React from 'react';
-import { useTheme } from './hooks/useTheme';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
-import Services from './components/Services';
-import Team from './components/Team';
-import Portfolio from './components/Portfolio';
-import Testimonials from './components/Testimonials';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import { QueryClientProvider } from '@tanstack/react-query';
+import { Router, Route } from 'wouter';
+import { queryClient } from '@/lib/queryClient';
+import { ThemeProvider } from '@/components/providers/ThemeProvider';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
+import { HomePage } from '@/pages/HomePage';
 
 function App() {
-  const { isDark, toggleTheme } = useTheme();
-
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
-      <Header isDark={isDark} toggleTheme={toggleTheme} />
-      <main>
-        <Hero />
-        <About />
-        <Services />
-        <Team />
-        <Portfolio />
-        <Testimonials />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider defaultTheme="system" storageKey="digitalteam-ui-theme">
+        <Router>
+          <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+            <Header />
+            <main>
+              <Route path="/" component={HomePage} />
+              <Route path="/home" component={HomePage} />
+            </main>
+            <Footer />
+          </div>
+        </Router>
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
 
