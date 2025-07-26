@@ -9,11 +9,18 @@ export const queryClient = new QueryClient({
         return failureCount < 3;
       },
       queryFn: async ({ queryKey }) => {
-        const response = await fetch(queryKey[0] as string);
-        if (!response.ok) {
-          throw new Error(`API request failed: ${response.status} ${response.statusText}`);
+        try {
+          const response = await fetch(queryKey[0] as string);
+          if (!response.ok) {
+            const errorText = await response.text();
+            console.error(`API request failed: ${response.status} ${response.statusText}`, errorText);
+            throw new Error(`API request failed: ${response.status} ${response.statusText}`);
+          }
+          return response.json();
+        } catch (error) {
+          console.error('API request error:', error);
+          throw error;
         }
-        return response.json();
       },
     },
   },

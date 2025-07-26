@@ -11,5 +11,9 @@ services:
       - key: DATABASE_URL
         sync: false
     healthCheckPath: /api/services
+    disk:
+      name: web-service-disk
+      mountPath: /var/data
+      sizeGB: 1
 
 # Using external Supabase database - no Render database needed
