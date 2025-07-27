@@ -1,5 +1,18 @@
-// This file is no longer used - the application now uses in-memory storage
-// for better Replit compatibility and security.
-// See server/storage.ts for the current storage implementation.
+import { drizzle } from 'drizzle-orm/postgres-js';
+import postgres from 'postgres';
+import * as schema from "@shared/schema";
 
-export const db = null;
+if (!process.env.DATABASE_URL) {
+  throw new Error(
+    "DATABASE_URL must be set. Please ensure the database is provisioned.",
+  );
+}
+
+// Configure the connection for PostgreSQL
+const client = postgres(process.env.DATABASE_URL, {
+  max: 1,
+  idle_timeout: 20,
+  connect_timeout: 10
+});
+
+export const db = drizzle(client, { schema });
