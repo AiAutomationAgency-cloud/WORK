@@ -1,8 +1,7 @@
-import 'dotenv/config';
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
-import { seedDatabase } from "./seed";
+import { storage } from "./storage";
 
 const app = express();
 app.use(express.json());
@@ -39,12 +38,13 @@ app.use((req, res, next) => {
 });
 
 (async () => {
-  // Initialize database with sample data
+  // Initialize in-memory storage with sample data
   try {
-    await seedDatabase();
+    await storage.seedData();
+    log("✅ In-memory storage initialized with portfolio data");
   } catch (error) {
-    log(`Database seeding failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
-    log("Continuing with empty database");
+    log(`Storage initialization failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    log("Continuing with empty storage");
   }
 
   const server = await registerRoutes(app);
